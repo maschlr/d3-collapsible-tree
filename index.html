@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <title>D3.js collapsible tree demo</title>
     <script src='//d3js.org/d3.v3.min.js'></script>
-    <script src='js/d3-colllapsible-tree.js'></script>
-    <link rel="stylesheet" href="css/tree.js">
+    <script src='js/d3-collapsible-tree.js'></script>
+    <link rel="stylesheet" href="css/tree.css">
 </head>
 
 <body>
     <script>
-        var el = document.querySelector('#body');
+        var el = document.querySelector('body');
 
         // you can also set a couple of other things like dimensions in this object
         var options = {
@@ -21,7 +21,7 @@
         var tree = new Tree(options);
 
         // Get some sample data
-        tree.getData("https://bl.ocks.org/mbostock/raw/4063550/flare.json")
+        tree.getData("flare.json")
     </script>
 </body>
 
