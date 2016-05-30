@@ -27,8 +27,14 @@
             .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
     };
 
+    Tree.prototype.showTooltip = function(f) {
+        this.tip = d3.tip().attr('class', 'd3-tip').html(f);
+    };
+
     Tree.prototype.diagonal = d3.svg.diagonal()
-        .projection(function(d) {return [d.y, d.x];});
+        .projection(function(d) {
+            return [d.y, d.x];
+        });
 
     Tree.prototype.setData = function(data) {
         this.root = data;
@@ -83,33 +89,54 @@
 
         // Update the nodes
         var node = this.svg.selectAll("g.node")
-            .data(nodes, function(d) {return d.id || (d.id = ++_this.i);});
+            .data(nodes, function(d) {
+                return d.id || (d.id = ++_this.i);
+            });
 
         // Enter any new nodes at the parent's previous position
         var nodeEnter = node.enter().append('g')
             .attr('class', 'node')
-            .attr('transform', function(d) { return 'translate(' + source.y0 + ',' + source.x0 + ')';})
+            .attr('transform', function(d) {
+                return 'translate(' + source.y0 + ',' + source.x0 + ')';
+            })
             .on('click', click);
+
+        if (_this.tip) {
+            nodeEnter.on('mouseover', _this.tip.show)
+                .on('mouseout', _this.tip.hide);
+        }
 
         nodeEnter.append('circle')
             .attr('r', 1e-6)
-            .style('fill', function(d) {return d._children ? 'lightstellblue' : '#fff';});
+            .style('fill', function(d) {
+                return d._children ? 'lightstellblue' : '#fff';
+            });
 
         nodeEnter.append('text')
-            .attr('x', function(d) {return d.children || d._children ? -10 : 10;})
+            .attr('x', function(d) {
+                return d.children || d._children ? -10 : 10;
+            })
             .attr('dy', '.35em')
-            .attr('text-anchor', function(d) {return d.children || d._children ? "end" : "start";})
-            .text(function(d) {return d.name;})
+            .attr('text-anchor', function(d) {
+                return d.children || d._children ? "end" : "start";
+            })
+            .text(function(d) {
+                return d.name;
+            })
             .style('fill-opacity', 1e-6);
 
         // Transition nodes to their new postition
         var nodeUpdate = node.transition()
             .duration(this.duration)
-            .attr('transform', function(d) {return 'translate(' + d.y + ',' + d.x + ')';});
+            .attr('transform', function(d) {
+                return 'translate(' + d.y + ',' + d.x + ')';
+            });
 
         nodeUpdate.select('circle')
             .attr('r', 4.5)
-            .style('fill', function(d) {return d._children ? 'lightsteelblue' : '#fff';});
+            .style('fill', function(d) {
+                return d._children ? 'lightsteelblue' : '#fff';
+            });
 
         nodeUpdate.select('text')
             .style('fill-opacity', 1);
@@ -173,6 +200,9 @@
             d.x0 = d.x;
             d.y0 = d.y;
         });
+
+        // Call the tooltip on the tree visualization
+        _this.svg.call(_this.tip);
     };
 
 

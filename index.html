@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>D3.js collapsible tree demo</title>
-    <script src='//d3js.org/d3.v3.min.js'></script>
+    <script src='bower_components/d3/d3.js'></script>
+    <script src='bower_components/d3-tip/index.js'></script>
     <script src='js/d3-collapsible-tree.js'></script>
     <link rel="stylesheet" href="css/tree.css">
 </head>
@@ -15,12 +16,14 @@
 
         // you can also set a couple of other things like dimensions in this object
         var options = {
-            element: el
+            element: el,
+            showTooltip: true
         };
 
         var tree = new Tree(options);
 
         // Get some sample data
+        tree.showTooltip(function(d) {return d.name;});
         tree.getData("flare.json")
     </script>
 </body>
