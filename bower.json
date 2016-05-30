@@ -1,0 +1,32 @@
+{
+    "name": "d3-collapsible-tree",
+    "homepage": "https://github.com/mrtnschltr/d3-collapsible-tree",
+    "authors": [
+        "Marten Schlueter <marten.schlueter@gmail.com>"
+    ],
+    "description": "An object oriented approach to d3 tree layouts",
+    "main": "js/d3-collapsible-tree.js",
+    "dependencies": {
+        "d3": "~3.5.17",
+        "d3-tip": "~0.6.7"
+    },
+    "moduleType": [
+        "amd",
+        "globals",
+        "node"
+    ],
+    "keywords": [
+        "d3",
+        "tree",
+        "layout"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests",
+        "flare.json"
+    ]
+}
