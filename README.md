@@ -13,4 +13,4 @@ The code generating the tree layout is basically the same as
     var tree = new Tree(options);
 
     // Get some sample data
-    tree.getData("https://bl.ocks.org/mbostock/raw/4063550/flare.json")
+    tree.getData("flare.json")
