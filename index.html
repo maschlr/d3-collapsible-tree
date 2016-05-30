@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>D3.js collapsible tree demo</title>
+    <script src='//d3js.org/d3.v3.min.js'></script>
+    <script src='js/d3-colllapsible-tree.js'></script>
+    <link rel="stylesheet" href="css/tree.js">
+</head>
+
+<body>
+    <script>
+        var el = document.querySelector('#body');
+
+        // you can also set a couple of other things like dimensions in this object
+        var options = {
+            element: el
+        };
+
+        var tree = new Tree(options);
+
+        // Get some sample data
+        tree.getData("https://bl.ocks.org/mbostock/raw/4063550/flare.json")
+    </script>
+</body>
+
+</html>
