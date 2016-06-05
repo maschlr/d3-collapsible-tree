@@ -4,6 +4,12 @@ This is a small js library for a more convenient use of the d3 tree layout follo
 The code generating the tree layout is basically the same as
 [Mike Bostock's](https://bl.ocks.org/mbostock/4339083).
 
+## Install dependency d3
+    npm i
+
+## Build using browserify
+    browserify src/example.js > dist/js/bundle.js
+
 ## Minimal example
     var el = document.querySelector('#body');
 
