@@ -2,7 +2,7 @@
   "name": "d3-collapsible-tree",
   "version": "1.0.0",
   "description": "A d3 module to create collapsible tree layouts",
-  "main": "index.js",
+  "main": "d3-collapsible-tree.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/mrtnschltr/d3-collapsible-tree#readme",
   "dependencies": {
-    "d3": "^3.5.17",
-    "d3-tip": "^0.6.7"
+    "d3": "^3.5.17"
   }
 }

@@ -1,5 +1,4 @@
 var d3 = require('d3');
-d3.tip = require('d3-tip');
 
 function Tree(opts) {
     //load in arguments from config object
@@ -28,10 +27,6 @@ function Tree(opts) {
         .append('g')
         .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
 }
-
-Tree.prototype.showTooltip = function(f) {
-    this.tip = d3.tip().attr('class', 'd3-tip').html(f);
-};
 
 Tree.prototype.diagonal = d3.svg.diagonal()
     .projection(function(d) {
@@ -102,11 +97,6 @@ Tree.prototype.update = function(source) {
             return 'translate(' + source.y0 + ',' + source.x0 + ')';
         })
         .on('click', click);
-
-    if (_this.tip) {
-        nodeEnter.on('mouseover', _this.tip.show)
-            .on('mouseout', _this.tip.hide);
-    }
 
     nodeEnter.append('circle')
         .attr('r', 1e-6)
@@ -202,9 +192,5 @@ Tree.prototype.update = function(source) {
         d.x0 = d.x;
         d.y0 = d.y;
     });
-
-    // Call the tooltip on the tree visualization
-    _this.svg.call(_this.tip);
+    debugger;
 };
-
-module.exports = Tree;
