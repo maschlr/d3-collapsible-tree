@@ -192,5 +192,6 @@ Tree.prototype.update = function(source) {
         d.x0 = d.x;
         d.y0 = d.y;
     });
-    debugger;
 };
+
+module.exports = Tree;
